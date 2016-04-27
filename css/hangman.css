@@ -1,0 +1,18 @@
+p {
+  background-color: green;
+  color: white;
+  width: 100px;
+  text-align: center;
+  font-size: 20px;
+  box-shadow: 2px 3px 1px grey;
+  outline: 1px solid lime;
+}
+
+textarea{
+  font-size: 50px;
+}
+
+div#wordDisplay {
+  font-family: monospace;
+  font-size: 40px;
+}
