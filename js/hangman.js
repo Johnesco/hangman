@@ -83,18 +83,36 @@ var game = {
   },
 
   updateGameState: function() {
-    if (game.badGuesses >= game.hangmanArt.length) { //end game as loss
-      game.drawMan();
-      game.gameState = "lost";
-      $gameState.html("<h1>Game Over</h1>");
-    } else if (game.isSolved()) { // end game as win
-      game.gameState = "won";
-      game.drawWord();
-      $gameState.html("<h1>You Win</h1>");
-    } else { //still playing
-      game.drawMan();
-      game.drawWord();
+
+    // While State is "playing" check for win or loss.
+    if (game.gameState === "playing"){
+      if (game.badGuesses >= game.hangmanArt.length) { //end game as loss
+        game.gameState = "lost";
+        game.drawMan();
+      } else if (game.isSolved()) { // end game as win
+        game.gameState = "won";
+      } 
     }
+
+    // After determining Game State, execute update per state.
+    switch(game.gameState) {
+    case "playing":
+        {
+          game.drawMan();
+          game.drawWord();
+          $gameState.html("<h1>Guess a letter!</h1>");
+        }
+        break;
+    case "won":
+        {
+          game.drawWord();
+          $gameState.html("<h1>You Win</h1>");
+        }
+        break;
+    case "lost":
+        {
+          $gameState.html("<h1>Game Over</h1>");}
+        }
 
     $debug.html(
                "<h3>Debug info</h3>" +
@@ -105,14 +123,11 @@ var game = {
   },
 
   reset: function() {
-    keyboardMaker.createKeyboard(keyboardMaker.alphabet);
     game.createWord(game.wordList[Math.floor(Math.random() * game.wordList.length)]);
-    game.updateGameState();
-    game.state = "playing";
+    game.gameState = "playing";
     game.badGuesses = 0;
-
+    game.updateGameState();
   }
-
 }
 
 var keyboardMaker = {
@@ -137,4 +152,5 @@ var keyboardMaker = {
 }
 
 // Main
+keyboardMaker.createKeyboard(keyboardMaker.alphabet);
 game.reset();
