@@ -4,10 +4,13 @@
 <link rel="stylesheet" type="text/css" href="css/hangman.css">
 </head>
 <body>
-	<div id="man"></div>
-	<div id="wordDisplay"></div>
-	<div id="gameState"></div>
-	<br>
 	<div style="clear: both" id="keyboard"></div>
+	<div id="wordDisplay"></div><br>
+	<div id="man"></div>
+	<div id="gameState"></div>
+	<div id="reset" class="key" onclick="game.reset();">Reset Game</div>
+	<div id="debug"></div>
+	<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+	<script src="js/hangman.js"></script>
 </body>
 </html>
