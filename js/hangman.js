@@ -21,7 +21,7 @@ var game = {
     ["a", false]
   ],
 
-  wordList: ["wisper", "yodel", "whisky", "popcorn", "shogun", "easter", "taxonomy", "bluebird", "dynamic", "pangea", "mexico"],
+  wordList: ["whisper", "yodel", "whisky", "popcorn", "shogun", "easter", "taxonomy", "bluebird", "dynamic", "pangaea", "mexico"],
 
   createWord: function(phrase) {
     game.word = [];
